@@ -1,16 +1,14 @@
 package org.example;
 
-import org.example.entity.Planet;
 import org.example.entity.Ticket;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
 import java.util.List;
 
-public class TicketCrudService {
+    public class TicketCrudService {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -18,6 +16,7 @@ public class TicketCrudService {
     public TicketCrudService(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
 
     public void createTicket(Ticket ticket) {
         EntityTransaction transaction = entityManager.getTransaction();
@@ -51,4 +50,10 @@ public class TicketCrudService {
         }
         transaction.commit();
     }
+        public Ticket addTicket(Ticket ticket) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(ticket);
+            entityManager.getTransaction().commit();
+            return ticket;
+        }
 }

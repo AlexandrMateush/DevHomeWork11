@@ -12,7 +12,7 @@ CREATE TABLE planet (
 CREATE TABLE ticket (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     created_at TIMESTAMP NOT NULL,
-    client_id BIGINT FOREIGN KEY(client_id) clients(client_id) NOT NULL,
+    client_id BIGINT NOT NULL,
     from_planet_id VARCHAR(255) NOT NULL,
     to_planet_id VARCHAR(255) NOT NULL,
     FOREIGN KEY (client_id) REFERENCES client(id),

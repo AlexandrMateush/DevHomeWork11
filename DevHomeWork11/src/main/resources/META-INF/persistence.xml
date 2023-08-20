@@ -7,6 +7,7 @@
 <persistence-unit name="persistence.xml" transaction-type="RESOURCE_LOCAL">
     <class>org.example.entity.Client</class>
     <class>org.example.entity.Planet</class>
+    <class>org.example.entity.Ticket</class>
 
     <properties>
         <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testdb"/>

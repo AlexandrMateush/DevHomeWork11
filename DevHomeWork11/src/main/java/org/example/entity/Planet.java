@@ -2,7 +2,6 @@ package org.example.entity;
 
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "planet")
@@ -11,11 +10,6 @@ public class Planet {
     private String id;
 
     private String name;
-    @OneToMany(mappedBy = "fromPlanet")
-    private Set<Ticket> departureTickets;
-
-    @OneToMany(mappedBy = "toPlanet")
-    private Set<Ticket> arrivalTickets;
 
     public Planet(String name) {
         this.name = name;
@@ -46,4 +40,3 @@ public class Planet {
         this.name = name;
     }
 }
-
