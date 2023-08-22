@@ -2,8 +2,6 @@ package org.example.entity;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,7 +13,6 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -45,7 +42,7 @@ public class Client {
         this.tickets = tickets;
     }
 
-    public Client(String name) {
+    public Client(String name, Set<Ticket> tickets) {
         this.name = name;
     }
 
